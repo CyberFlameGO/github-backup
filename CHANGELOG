@@ -1,4 +1,4 @@
-github-backup (1.20170302) UNRELEASED; urgency=medium
+github-backup (1.20171126) unstable; urgency=medium
 
   * Updated to use github-0.18
   * Pull requests retreived with authentication again.
@@ -8,7 +8,7 @@ github-backup (1.20170302) UNRELEASED; urgency=medium
   * Various updates to internal git and utility libraries shared
     with git-annex.
 
- -- Joey Hess <id@joeyh.name>  Wed, 29 Mar 2017 12:10:13 -0400
+ -- Joey Hess <id@joeyh.name>  Sun, 26 Nov 2017 15:33:35 -0400
 
 github-backup (1.20170301) unstable; urgency=medium
 

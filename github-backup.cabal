@@ -1,5 +1,5 @@
 Name: github-backup
-Version: 1.20170301
+Version: 1.20171126
 Cabal-Version: >= 1.8
 Maintainer: Joey Hess <id@joeyh.name>
 Author: Joey Hess
@@ -123,6 +123,38 @@ Executable gitriddance
     Build-Depends: network-uri (>= 2.6), network (>= 2.6)
   else
     Build-Depends: network (< 2.6), network (>= 2.0)
+
+  Other-Modules:
+    Common
+    Git
+    Git.Command
+    Git.Config
+    Git.Construct
+    Git.FilePath
+    Git.Remote
+    Git.Types
+    Git.Url
+    Github.EnumRepos
+    Github.GetAuth
+    Utility.Applicative
+    Utility.CoProcess
+    Utility.Data
+    Utility.Directory
+    Utility.Env
+    Utility.Exception
+    Utility.FileMode
+    Utility.FileSystemEncoding
+    Utility.Misc
+    Utility.Monad
+    Utility.PartialPrelude
+    Utility.Path
+    Utility.Process
+    Utility.Process.Shim
+    Utility.SafeCommand
+    Utility.Split
+    Utility.SystemDirectory
+    Utility.Tmp
+    Utility.UserInfo
 
 custom-setup
   Setup-Depends: base (>= 4.5), hslogger, split, directory, process,
