@@ -4,6 +4,9 @@ github-backup (1.20170302) UNRELEASED; urgency=medium
   * Pull requests retreived with authentication again.
   * Build with -threaded, which fixes some issues with the non-threaded
     GHC RTS.
+  * Removed dependency on MissingH, instead depending on split.
+  * Various updates to internal git and utility libraries shared
+    with git-annex.
 
  -- Joey Hess <id@joeyh.name>  Wed, 29 Mar 2017 12:10:13 -0400
 
