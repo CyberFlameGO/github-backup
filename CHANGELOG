@@ -1,5 +1,7 @@
 github-backup (1.20170302) UNRELEASED; urgency=medium
 
+  * Updated to use github-0.18
+  * Pull requests retreived with authentication again.
   * Build with -threaded, which fixes some issues with the non-threaded
     GHC RTS.
 
