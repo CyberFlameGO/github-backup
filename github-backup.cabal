@@ -55,6 +55,7 @@ Executable github-backup
     Build-Depends: network (< 2.6), network (>= 2.0)
   
   Other-Modules:
+    BuildInfo
     Build.Version
     Build.TestConfig
     Build.Configure

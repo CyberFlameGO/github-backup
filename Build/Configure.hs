@@ -1,4 +1,4 @@
-{- Checks system configuration and generates SysConfig.hs. -}
+{- Checks system configuration and generates SysConfig. -}
 
 {-# OPTIONS_GHC -fno-warn-tabs #-}
 
@@ -14,7 +14,7 @@ import Git.Version
 tests :: [TestCase]
 tests =
 	[ TestCase "version" (Config "version" . StringConfig <$> getVersion)
-	, TestCase "git" $ requireCmd "git" "git --version >/dev/null"
+	, TestCase "git" $ testCmd "git" "git --version >/dev/null"
 	, TestCase "git version" getGitVersion
 	]
 
