@@ -7,7 +7,7 @@ See the [[README]] for installation and usage instructions.
 
 [[!sidebar content="""
 [[README]]  
-[[news]]  
-[[todo]]  
-[[forum]]  
+[[News]]  
+[[Todo]]  
+[[Forum]]  
 """]]
