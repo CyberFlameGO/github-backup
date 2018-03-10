@@ -9,4 +9,5 @@ See the [[README]] for installation and usage instructions.
 [[README]]  
 [[news]]  
 [[todo]]  
+[[forum]]  
 """]]
