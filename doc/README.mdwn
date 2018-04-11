@@ -5,7 +5,12 @@ pull requests, watchers, and stars.
 
 ## Installation
 
-First install Haskell's [stack](http://haskellstack.org/) tool.
+Several distributions include packages of github-backup, for example
+on Debian and Debian derived distributions it can easily be installed
+with `sudo apt-get install github-backup`.
+
+To build it from source, first install Haskell's
+[stack](http://haskellstack.org/) tool.
 For example, on a Debian system:
 
 	sudo apt-get install haskell-stack
