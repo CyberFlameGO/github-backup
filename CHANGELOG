@@ -2,6 +2,8 @@ github-backup (1.20171127) UNRELEASED; urgency=medium
 
   * Various updates to internal git and utility libraries shared
     with git-annex.
+  * Allow github-0.19.
+  * stack.yaml: Updated to lts-11.17.
 
  -- Joey Hess <id@joeyh.name>  Thu, 14 Dec 2017 13:12:28 -0400
 
