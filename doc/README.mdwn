@@ -38,9 +38,9 @@ making packages of github-backup.
 
 There are a couple of reasons to want to back this stuff up:
 
-* In case something happens to GitHub. More generally because
-  keeping your data in the cloud *and* relying on the cloud to
-  back it up is foolish.
+* In case something happens to GitHub. (Some may argue that this has
+  already happened.) More generally because keeping your data in the
+  cloud *and* relying on the cloud to back it up is foolish.
 
 * In case someone takes down a repository that you were interested in.
   If you run github-backup with your username, it will back up all 
