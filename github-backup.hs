@@ -83,6 +83,7 @@ data BackupState = BackupState
 	, retriedRequests :: S.Set Request
 	, retriedFailed :: S.Set Request
 	, gitRepo :: Git.Repo
+	, gitRepoRemotes :: [Git.Repo]
 	, gitHubAuth :: Maybe Github.Auth
 	, deferredBackups :: [Backup ()]
 	, catFileHandle :: Maybe CatFileHandle
@@ -326,7 +327,7 @@ commitWorkDir = do
 			sha <- hashFile h f
 			path <- asTopFilePath <$> relPathDirToFile dir f
 			streamer $ Git.UpdateIndex.updateIndexLine
-				sha Git.Types.FileBlob path
+				sha Git.Types.TreeFile path
 
 {- Returns the ref of the github branch, creating it first if necessary. -}
 getBranch :: Backup Git.Ref
@@ -367,7 +368,7 @@ hasOrigin = inRepo $ Git.Ref.exists originname
 
 updateWiki :: GithubUserRepo -> Backup ()
 updateWiki fork =
-	ifM (any (\r -> Git.remoteName r == Just remote) <$> remotes)
+	ifM (any (\r -> Git.remoteName r == Just remote) <$> getState gitRepoRemotes)
 		( void fetchwiki
 		, void $
 			-- github often does not really have a wiki,
@@ -377,13 +378,12 @@ updateWiki fork =
 		)
   where
 	fetchwiki = inRepo $ Git.Command.runBool [Param "fetch", Param remote]
-	remotes = Git.remotes <$> getState gitRepo
 	remote = remoteFor fork
 	remoteFor (GithubUserRepo user repo) =
 		"github_" ++ user ++ "_" ++ repo ++ ".wiki"
 
 addFork :: ToGithubUserRepo a => a -> Backup ()
-addFork forksource = unlessM (elem fork . gitHubRemotes <$> getState gitRepo) $ do
+addFork forksource = unlessM (elem fork . gitHubRemotes <$> getState gitRepoRemotes) $ do
 	liftIO $ putStrLn $ "New fork: " ++ repoUrl fork
 	void $ addRemote (remoteFor fork) (repoUrl fork)
 	gitRepo' <- inRepo $ Git.Config.reRead
@@ -494,6 +494,7 @@ newState noforks r = BackupState
 	<*> pure S.empty
 	<*> pure S.empty
 	<*> pure r
+	<*> Git.Construct.fromRemotes r
 	<*> getAuth
 	<*> pure []
 	<*> pure Nothing
@@ -518,7 +519,7 @@ backupRepo noforks (Just repo) =
 
 mainBackup :: Backup ()
 mainBackup = do
-	remotes <- gitHubPairs <$> getState gitRepo
+	remotes <- gitHubPairs <$> getState gitRepoRemotes
 	when (null remotes) $
 		error "no github remotes found"
 	forM_ remotes $ \(r, remote) -> do

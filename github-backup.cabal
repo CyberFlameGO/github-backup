@@ -39,7 +39,7 @@ Executable github-backup
   GHC-Options: -Wall -fno-warn-tabs -threaded
   Build-Depends:
     base (>= 4.8 && < 5),
-    github (>= 0.18 && < 0.19),
+    github (>= 0.18 && < 0.20),
     text, filepath, exceptions, transformers, bytestring, vector,
     hslogger, split, process, containers, unix-compat, IfElse,
     directory, mtl, utf8-string, optparse-applicative, pretty-show
@@ -96,6 +96,8 @@ Executable github-backup
     Utility.UserInfo
     Utility.Misc
     Utility.Env
+    Utility.Env.Basic
+    Utility.Env.Set
     Utility.PosixFiles
     Utility.Data
     Utility.PartialPrelude
@@ -110,7 +112,7 @@ Executable gitriddance
   GHC-Options: -Wall -fno-warn-tabs
   Build-Depends: 
     base (>= 4.8 && < 5),
-    github (>= 0.18 && < 0.19),
+    github (>= 0.18 && < 0.20),
     text, filepath, exceptions, transformers, bytestring, vector,
     hslogger, split, process, containers, unix-compat, IfElse,
     directory, mtl, utf8-string
@@ -142,6 +144,8 @@ Executable gitriddance
     Utility.Data
     Utility.Directory
     Utility.Env
+    Utility.Env.Basic
+    Utility.Env.Set
     Utility.Exception
     Utility.FileMode
     Utility.FileSystemEncoding
