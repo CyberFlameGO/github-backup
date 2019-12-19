@@ -30,29 +30,21 @@ Extra-Source-Files:
   configure.hs
   Build/collect-ghc-options.sh
 
-Flag network-uri
-  Description: Get Network.URI from the network-uri package
-  Default: True
-
 Executable github-backup
   Main-Is: github-backup.hs
   GHC-Options: -Wall -fno-warn-tabs -threaded
   Build-Depends:
     base (>= 4.8 && < 5),
-    github (>= 0.18 && < 0.20),
+    github (>= 0.23 && < 0.24),
     text, filepath, exceptions, transformers, bytestring, vector,
     hslogger, split, process, containers, unix-compat, IfElse,
-    directory, mtl, utf8-string, optparse-applicative, pretty-show
+    directory, mtl, utf8-string, optparse-applicative, pretty-show,
+    network-uri (>= 2.6), network (>= 2.6)
   
   if (! os(windows))
     Build-Depends: unix
   else
     Build-Depends: Win32, setenv
-  
-  if flag(network-uri)
-    Build-Depends: network-uri (>= 2.6), network (>= 2.6)
-  else
-    Build-Depends: network (< 2.6), network (>= 2.0)
   
   Other-Modules:
     BuildInfo
@@ -112,20 +104,16 @@ Executable gitriddance
   GHC-Options: -Wall -fno-warn-tabs
   Build-Depends: 
     base (>= 4.8 && < 5),
-    github (>= 0.18 && < 0.20),
+    github (>= 0.23 && < 0.24),
     text, filepath, exceptions, transformers, bytestring, vector,
     hslogger, split, process, containers, unix-compat, IfElse,
-    directory, mtl, utf8-string
+    directory, mtl, utf8-string,
+    network-uri (>= 2.6), network (>= 2.6)
   
   if (! os(windows))
     Build-Depends: unix
   else
     Build-Depends: Win32, setenv
-  
-  if flag(network-uri)
-    Build-Depends: network-uri (>= 2.6), network (>= 2.6)
-  else
-    Build-Depends: network (< 2.6), network (>= 2.0)
 
   Other-Modules:
     Common

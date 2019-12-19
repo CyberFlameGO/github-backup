@@ -54,7 +54,7 @@ closeall auth (GithubUserRepo user repo) msg =
 		let i = Github.issueNumber issue
 		putStrLn $ "closing issue: " ++ T.unpack (Github.issueTitle issue)
 		either (oops "posting comment") (const $ return ())
-			=<< Github.createComment auth (fromString user) (fromString repo) (Github.mkId (Github.Id 0) i) (T.pack msg)
+			=<< Github.createComment auth (fromString user) (fromString repo) i (T.pack msg)
 		either (oops "closing issue/pull") (const $ return ())
-			=<< Github.editIssue auth (fromString user) (fromString repo) (Github.mkId (Github.Id 0) i)
+			=<< Github.editIssue auth (fromString user) (fromString repo) (Github.mkId (Github.Id 0) (Github.unIssueNumber i))
 				(Github.editOfIssue { Github.editIssueState = Just Github.StateClosed } )

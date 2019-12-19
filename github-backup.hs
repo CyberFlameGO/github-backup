@@ -14,14 +14,12 @@ import qualified Data.Map as M
 import qualified Data.Set as S
 import qualified Data.Text as T
 import Data.Either
-import Data.Monoid
 import Data.String
 import GHC.Exts (toList)
 import Data.Vector (Vector)
 import Options.Applicative
 import Text.Show.Pretty
 import "mtl" Control.Monad.State.Strict
-import qualified GitHub.Data.Id as Github
 import qualified GitHub.Data.Name as Github
 import qualified GitHub.Auth as Github
 import qualified GitHub.Data.Repos as Github
@@ -161,7 +159,7 @@ pullrequestsStore :: Storer
 pullrequestsStore = simpleHelper "pullrequest" Github.pullRequestsFor' $
 	forValues $ \req r -> do
 		let repo = requestRepo req
-		let n = Github.simplePullRequestNumber r
+		let n = Github.unIssueNumber $ Github.simplePullRequestNumber r
 		runRequest $ RequestNum "pullrequest" repo n
 
 pullrequestStore :: Storer
@@ -171,7 +169,7 @@ pullrequestStore = numHelper "pullrequest" call $ \n ->
 	call auth user repo n = Github.pullRequest' auth
 		(fromString user)
 		(fromString repo)
-		(Github.mkId (Github.Id 0) n)
+		(Github.IssueNumber n)
 
 milestonesStore :: Storer
 milestonesStore = simpleHelper "milestone" GitHub.Endpoints.Issues.Milestones.milestones' $
@@ -186,7 +184,7 @@ issuesStore = withHelper "issue"
   where
 	go = forValues $ \req i -> do
 		let repo = requestRepo req
-		let n = Github.issueNumber i
+		let n = Github.unIssueNumber $ Github.issueNumber i
 		store ("issue" </> show n) req i
 		runRequest (RequestNum "issuecomments" repo n)
 
@@ -199,7 +197,7 @@ issuecommentsStore = numHelper "issuecomments" call $ \n ->
 	call auth user repo n = GitHub.Endpoints.Issues.Comments.comments' auth
 		(fromString user)
 		(fromString repo)
-		(Github.mkId (Github.Id 0) n)
+		(Github.IssueNumber n)
 
 userrepoStore :: Storer
 userrepoStore = simpleHelper "repo" Github.repository' $ \req r -> do
