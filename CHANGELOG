@@ -5,7 +5,7 @@ github-backup (1.20171127) UNRELEASED; urgency=medium
     with git-annex.
   * Remove support for building with old versions of network-uri and network
     before the split in 2.6.
-  * stack.yaml: Updated to lts-11.17.
+  * stack.yaml: Updated to lts-13.29.
 
  -- Joey Hess <id@joeyh.name>  Thu, 14 Dec 2017 13:12:28 -0400
 
