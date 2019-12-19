@@ -1,4 +1,4 @@
-github-backup (1.20171127) UNRELEASED; urgency=medium
+github-backup (1.20191219) unstable; urgency=medium
 
   * Updated to use github-0.23 (0.24 needs larger changes)
   * Various updates to internal git and utility libraries shared
@@ -7,7 +7,7 @@ github-backup (1.20171127) UNRELEASED; urgency=medium
     before the split in 2.6.
   * stack.yaml: Updated to lts-13.29.
 
- -- Joey Hess <id@joeyh.name>  Thu, 14 Dec 2017 13:12:28 -0400
+ -- Joey Hess <id@joeyh.name>  Thu, 19 Dec 2019 18:43:05 -0400
 
 github-backup (1.20171126) unstable; urgency=medium
 
