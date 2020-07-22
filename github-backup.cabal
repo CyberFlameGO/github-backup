@@ -1,6 +1,6 @@
 Name: github-backup
 Version: 1.20200721
-Cabal-Version: >= 1.8
+Cabal-Version: >= 1.10
 Maintainer: Joey Hess <id@joeyh.name>
 Author: Joey Hess
 Stability: Stable
@@ -33,6 +33,7 @@ Extra-Source-Files:
 Executable github-backup
   Main-Is: github-backup.hs
   GHC-Options: -Wall -fno-warn-tabs -threaded
+  Default-Language: Haskell98
   Build-Depends:
     base (>= 4.8 && < 5),
     github (>= 0.23 && < 0.24),
@@ -102,6 +103,7 @@ Executable github-backup
 Executable gitriddance
   Main-Is: gitriddance.hs
   GHC-Options: -Wall -fno-warn-tabs
+  Default-Language: Haskell98
   Build-Depends: 
     base (>= 4.8 && < 5),
     github (>= 0.23 && < 0.24),
