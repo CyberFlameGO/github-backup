@@ -1,3 +1,10 @@
+github-backup (1.20191220) UNRELEASED; urgency=medium
+
+  * Removed support for GITHUB_USER/GITHUB_PASSWORD since github will soon
+    remove support for http basic auth. Use GITHUB_OAUTH_TOKEN instead.
+
+ -- Joey Hess <id@joeyh.name>  Tue, 21 Jul 2020 23:09:23 -0400
+
 github-backup (1.20191219) unstable; urgency=medium
 
   * Updated to use github-0.23 (0.24 needs larger changes)
