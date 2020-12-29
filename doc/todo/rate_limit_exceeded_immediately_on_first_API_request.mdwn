@@ -1,0 +1,15 @@
+Running github-backup in a fresh clone of a repo for the first time, all
+the top-level API requests fail. It doesn't say why in that case, but I
+think this is a similar case that sheds light on it:
+
+	joey@darkstar:/tmp> github-backup joeyh
+	github-backup: Failed to query github for repos:
+	....
+	(StatusCodeException (Response {responseStatus = Status {statusCode = 403, statusMessage = "rate limit exceeded"}
+
+Setting `GITHUB_OAUTH_TOKEN` before running it probably avoids the problem,
+but I've not tried it. 
+
+This is apparently the API rate limit blocking the first request. It used
+to be that a few hundred or thousand requests were allowed. I don't know
+if this has changed intentionally or what. --[[Joey]]
