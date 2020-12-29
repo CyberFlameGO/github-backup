@@ -1,0 +1,4 @@
+I am no longer using this, and have not found the time to update it past
+github-0.23 in over a year since newer versions of the library were
+released. I'm not sure it works at all any longer. It needs a new
+maintainer. --[[Joey]]
