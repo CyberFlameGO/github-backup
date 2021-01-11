@@ -1,0 +1,13 @@
+[[!comment format=mdwn
+ username="0xloem@0bd8a79a57e4f0dcade8fc81d162c37eae4d6730"
+ nickname="0xloem"
+ avatar="http://cdn.libravatar.org/avatar/b8c087f7c5e6a9358748f0727c077f3b"
+ subject="matinainance plans"
+ date="2021-01-11T10:14:51Z"
+ content="""
+Hi Joey,
+
+Do you think there would be a way to offer community maintenance here?  Like a wiki?
+
+When youtube-dl had its brief dmca takedown, it came out that a lot of people are passionate about e.g. migrating issues off of github, but that it can be hard for us to find each other and work together.  For example, somebody showed off their recent project ganarchy, https://ganarchy.autistic.space/project/385e734a52e13949a7a5c71827f6de920dbfea43/ , a system for showing forks such that the one with most recent activity is hilighted.  Do you have any thoughts near these ideas?
+"""]]
